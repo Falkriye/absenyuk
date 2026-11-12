@@ -1,0 +1,70 @@
+:root {
+  --teal: #0F766E;
+  --teal-dark: #0B5F57;
+  --mint: #E6F4F1;
+  --ink: #1F2937;
+  --mute: #4B5563;
+  --line: #EEF2F1;
+  --card: #F6F8F7;
+  --bg: #DCE7E3;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #F59E0B; outline-offset: 2px; }
+
+.stage { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 16px; }
+.roles { display: flex; gap: 8px; }
+.roles button { border: 0; border-radius: 999px; min-height: 44px; padding: 0 18px; font-size: 13px; font-weight: 600; background: #fff; color: var(--teal); }
+.roles button.is-on { background: var(--teal); color: #fff; }
+
+.phone { width: 390px; max-width: 100%; height: min(820px, calc(100dvh - 100px)); background: #fff; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #C5D6D1; }
+.top { background: var(--teal); color: #fff; padding: 22px 20px 16px; }
+.top p { margin: 0; font-size: 12px; opacity: .92; }
+.top h1 { margin: 2px 0 0; font-size: 21px; font-weight: 700; }
+.body { flex: 1; overflow: auto; padding: 16px 20px; }
+.screen { display: flex; flex-direction: column; gap: 12px; }
+.screen[hidden], [hidden] { display: none !important; }
+
+.card { background: var(--card); border-radius: 14px; padding: 14px; }
+.card--soft { background: var(--mint); }
+.card strong, .card small, .card p { display: block; margin: 0; }
+.card strong { font-size: 15px; font-weight: 600; }
+.card small { font-size: 12px; color: var(--mute); }
+.card p { font-size: 14px; margin-top: 2px; }
+.card small + strong, .card small + p { margin-top: 2px; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.row--gap > * { flex: 1; }
+.hint { margin: 0; font-size: 13px; color: var(--mute); }
+.note { margin: 0; font-size: 12px; color: var(--teal-dark); }
+.link { font-size: 13px; font-weight: 600; color: var(--teal); }
+
+.btn { border: 0; border-radius: 12px; min-height: 48px; padding: 0 16px; background: var(--teal); color: #fff; font-size: 15px; font-weight: 600; }
+.btn--sm { min-height: 44px; border-radius: 10px; font-size: 14px; }
+.btn--ghost { background: #fff; color: var(--teal); border: 1.5px solid var(--teal); min-height: 46px; }
+.btn[disabled] { background: #D9F2EC; color: var(--teal-dark); cursor: default; }
+
+.kids, .hist, .bars { list-style: none; margin: 0; padding: 0; }
+.kids li, .hist li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.kids .name { flex: 1; font-size: 15px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--mint); color: var(--teal); font-weight: 700; display: grid; place-items: center; }
+
+.pill { border: 0; border-radius: 999px; min-height: 36px; padding: 0 14px; font-size: 13px; font-weight: 600; }
+.pill--hadir { background: #D9F2EC; color: #0B5F57; }
+.pill--izin  { background: #DCE8FF; color: #1E40AF; }
+.pill--sakit { background: #FDEBC8; color: #92400E; }
+.pill--alpa  { background: #FBDADA; color: #991B1B; }
+.hist .pill { min-height: 28px; cursor: default; }
+
+.stats { display: flex; gap: 8px; }
+.stat { flex: 1; background: var(--card); border-radius: 12px; padding: 12px 4px; text-align: center; }
+.stat b { display: block; font-size: 21px; }
+.stat span { font-size: 12px; color: var(--mute); }
+.bars li { margin-bottom: 12px; }
+.bar-head { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+.bar { height: 10px; border-radius: 5px; background: #E5ECEA; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--teal); border-radius: 5px; }
+
+.tabs { display: flex; border-top: 1px solid #E5E7EB; }
+.tabs button { flex: 1; min-height: 56px; border: 0; border-top: 3px solid transparent; background: #fff; font-size: 14px; font-weight: 600; color: #6B7280; }
+.tabs button.is-on { color: var(--teal); border-top-color: var(--teal); }

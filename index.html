@@ -1,1 +1,96 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Absen PAUD - Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stage">
+  <!-- Pemilih peran hanya untuk demo ke klien. Di aplikasi asli peran ditentukan saat login. -->
+  <div class="roles" id="roles" aria-label="Pilih peran demo">
+    <button type="button" data-role="guru">Guru</button>
+    <button type="button" data-role="ortu">Orang tua</button>
+    <button type="button" data-role="admin">Admin</button>
+  </div>
 
+  <div class="phone">
+    <header class="top">
+      <p id="sub"></p>
+      <h1 id="title"></h1>
+    </header>
+
+    <section class="body">
+      <!-- GURU: absen -->
+      <div class="screen" id="g-absen" hidden>
+        <div class="card card--soft row">
+          <div><strong>Check-in guru</strong><small id="check-text">Lokasi dicek saat check-in</small></div>
+          <button type="button" class="btn btn--sm" id="btn-checkin">Check-in</button>
+        </div>
+        <p class="hint">Kelas TK A. Ketuk status untuk mengubah.</p>
+        <ul class="kids" id="kids"></ul>
+        <p class="hint" id="summary"></p>
+        <button type="button" class="btn" id="btn-save">Simpan absen</button>
+        <p class="note" id="note-save" hidden>Tersimpan. Notifikasi dikirim ke orang tua.</p>
+      </div>
+
+      <!-- GURU: materi -->
+      <div class="screen" id="g-materi" hidden>
+        <div class="card"><small>Tema hari ini</small><strong>Mengenal warna</strong></div>
+        <div class="card"><small>Kegiatan</small><p>Mewarnai gambar buah dan menyebut warna benda di kelas.</p></div>
+        <div class="card"><small>Pesan untuk orang tua</small><p>Besok mohon bawa pakaian ganti ya, Ayah/Bunda.</p></div>
+        <button type="button" class="btn" id="btn-send">Kirim ke orang tua</button>
+        <p class="note" id="note-send" hidden>Terkirim. Orang tua menerima materi dan pesan ini.</p>
+      </div>
+
+      <!-- ORANG TUA: beranda -->
+      <div class="screen" id="o-beranda" hidden>
+        <p class="hint">Anak: Aisyah, TK A</p>
+        <div class="card card--soft"><strong id="abs-title"></strong><small id="abs-sub"></small></div>
+        <div id="materi-cards" hidden>
+          <div class="card"><small>Materi hari ini</small><strong>Mengenal warna</strong><p>Mewarnai gambar buah dan menyebut warna benda di kelas.</p></div>
+          <div class="card"><small>Pesan dari Bu Rina</small><p>Besok mohon bawa pakaian ganti ya, Ayah/Bunda.</p></div>
+        </div>
+        <div class="card" id="no-materi"><small>Materi hari ini belum dikirim guru.</small></div>
+      </div>
+
+      <!-- ORANG TUA: riwayat -->
+      <div class="screen" id="o-riwayat" hidden>
+        <p class="hint">November 2026</p>
+        <div class="stats" id="stats-o"></div>
+        <ul class="hist" id="hist"></ul>
+      </div>
+
+      <!-- ADMIN: rekap -->
+      <div class="screen" id="a-rekap" hidden>
+        <div class="stats" id="stats-a"></div>
+        <p class="hint">Kehadiran per kelas bulan ini</p>
+        <ul class="bars" id="bars"></ul>
+        <div class="row row--gap">
+          <button type="button" class="btn btn--ghost">Ekspor PDF</button>
+          <button type="button" class="btn btn--ghost">Ekspor Excel</button>
+        </div>
+      </div>
+
+      <!-- ADMIN: data -->
+      <div class="screen" id="a-data" hidden>
+        <div class="card row"><div><strong>KB</strong><small>12 anak, 2 guru</small></div><span class="link">Kelola</span></div>
+        <div class="card row"><div><strong>TK A</strong><small>18 anak, 2 guru</small></div><span class="link">Kelola</span></div>
+        <div class="card row"><div><strong>TK B</strong><small>16 anak, 1 guru</small></div><span class="link">Kelola</span></div>
+        <button type="button" class="btn">Tambah anak</button>
+        <button type="button" class="btn btn--ghost">Tambah guru</button>
+      </div>
+    </section>
+
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
